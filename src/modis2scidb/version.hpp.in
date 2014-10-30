@@ -1,0 +1,52 @@
+/*
+  Copyright (C) 2014-2014 National Institute For Space Research (INPE) - Brazil.
+
+  This file is part of modis2scidb.
+
+  modis2scidb is free software: you can redistribute it and/or modify
+  it under the terms of the GNU General Public License version 3 as
+  published by the Free Software Foundation.
+
+  modis2scidb is distributed  "AS-IS" in the hope that it will be useful,
+  but WITHOUT ANY WARRANTY OF ANY KIND; without even the implied warranty
+  of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+  GNU General Public License for more details.
+
+  You should have received a copy of the GNU General Public License along
+  with modis2scidb. See COPYING. If not, see <http://www.gnu.org/licenses/gpl-3.0.html>.
+ */
+
+/*!
+  \file modis2scidb/modis2scidb_version.hpp
+
+  \brief MODIS to SciDB version information.
+
+  \author Gilberto Ribeiro de Queiroz <gribeiro@dpi.inpe.br>
+
+  \date 2014-2014
+
+  \copyright GNU General Public License version 3
+ */
+
+#ifndef __MODIS2SCIDB_MODIS2SCIDB_VERSION_HPP__
+#define __MODIS2SCIDB_MODIS2SCIDB_VERSION_HPP__
+
+//! Major version of MODIS2SCIDB (or version).
+#define MODIS2SCIDB_VERSION_MAJOR @MODIS2SCIDB_VERSION_MAJOR@
+
+//! Minor version of MODIS2SCIDB (or revision).
+#define MODIS2SCIDB_VERSION_MINOR @MODIS2SCIDB_VERSION_MINOR@
+
+//! Patched version of MODIS2SCIDB (or patch).
+#define MODIS2SCIDB_VERSION_PATCH @MODIS2SCIDB_VERSION_PATCH@
+
+//! Release status: alpha, beta, rc (release candidate), stable.
+#define MODIS2SCIDB_VERSION_STATUS "@MODIS2SCIDB_VERSION_STATUS@"
+
+//! A string description of MODIS2SCIDB version.
+#define MODIS2SCIDB_VERSION_STRING "@MODIS2SCIDB_VERSION_STRING@"
+
+//! MODIS2SCIDB version.
+#define MODIS2SCIDB_VERSION @MODIS2SCIDB_VERSION@
+
+#endif  // __MODIS2SCIDB_MODIS2SCIDB_VERSION_HPP__

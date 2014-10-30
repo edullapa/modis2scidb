@@ -1,0 +1,43 @@
+  MODIS to SciDB (modis2scidb)
+  ============================
+
+modis2scidb is a command line tool designed to convert remote sensing
+imagery data from MODIS - Moderate Resolution Imaging Spectroradiometer
+aboard NASA’s Aqua and Terra satellites (http://modis.gsfc.nasa.gov),
+to SciDB, an open source Data Management and Analytics System (DMAS).
+It can convert a set of MODIS HDF datasets into a SciDB multidimensional
+arrays.
+
+The codebase of modis2scidb is organized as follow:
+
+- build........: this folder contains the build system
+                 and instructions for building modis2scidb
+                 on several platforms and compilers.
+
+- src..........: the source code of modis2scidb.
+
+- COPYING......: this file contains the license model
+                 used by modis2scidb (GNU GPL version 3).
+
+- DEPENDENCIES.: this file contains a list of all third-party
+                 libraries used by modis2scidb. You can refer
+                 to it in order to know the recommended version
+                 of each library.
+
+- FAQ..........: Frequently Asked Questions about the codebase
+                 and modis2scidb.
+
+- README.......: (this file) it contains general instructions
+                 about modis2scidb codebase.
+
+- TODO.........: the list of things we plan to do.
+
+Inside each folder you will find more information about its
+structure and rationale (see the README files in each specific
+folder).
+
+For more information on modis2scidb, please, visit its
+main web page at: https://github.com/gqueiroz/modis2scidb
+
+
+  October 2014, Gilberto Ribeiro de Queiroz <gribeiro.mg@gmail.com>

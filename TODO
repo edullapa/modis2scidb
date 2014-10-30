@@ -1,0 +1,17 @@
+  The TO DO List for modis2scidb
+  ==============================
+
+1. Check build on Mac OS X and if possible than create the build instructions.
+
+2. Check build on Microsoft Windows 7 and 8 with Microsoft Visual C++ 2010 and 2012.
+   If possible than create the build instructions.
+
+3. Review and fix the install directives in the CMake scripts.
+
+4. Add i18n support and a better log support.
+
+
+For more information on modis2scidb, please, visit its main web page at: https://github.com/gqueiroz/modis2scidb
+
+
+  October 2014, Gilberto Ribeiro de Queiroz <gribeiro.mg@gmail.com>
