@@ -284,8 +284,10 @@ void convert(const input_arguments& args)
 // lets write the output to a SciDB binary file
   if(args.verbose)
     std::cout << "\tsaving data... " << std::flush;
+  
+  boost::filesystem::path input_file(args.source_file_name);
 
-  modis2scidb::modis_file_descriptor file_info = modis2scidb::parse_modis_file_name(args.source_file_name);
+  modis2scidb::modis_file_descriptor file_info = modis2scidb::parse_modis_file_name(input_file.filename().string());
 
   int64_t tile_h = boost::lexical_cast<int64_t>(file_info.tile.substr(1, 2));
   int64_t tile_v = boost::lexical_cast<int64_t>(file_info.tile.substr(4, 2));
@@ -294,6 +296,12 @@ void convert(const input_arguments& args)
   int64_t offset_v = tile_v * nrows;
 
   FILE* f = fopen(args.target_file_name.c_str(), "wb");
+  
+  if(f == 0)
+  {
+    boost::format err_msg("could not open output file: '%1%', for write! check if path exists.");
+    throw modis2scidb::gdal_error() << modis2scidb::error_description((err_msg % args.target_file_name).str());
+  }
 
   for(int64_t i = 0; i != nrows; ++i)
   {
