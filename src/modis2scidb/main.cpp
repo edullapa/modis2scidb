@@ -33,6 +33,7 @@
 #include "exception.hpp"
 #include "version.hpp"
 #include "utils.hpp"
+#include <inttypes.h>
 
 // STL
 #include <algorithm>
@@ -312,6 +313,8 @@ void convert(const input_arguments& args)
       int64_t gj = offset_h + j;
       
       int64_t idx = gj + (gi * 1000000) +  (args.time_point * 100000000000);
+      // printf("%" PRId64, idx);     
+      std::cout << idx;     
       
       fwrite(&idx, sizeof(unsigned char), sizeof(int64_t), f);
 
@@ -323,6 +326,7 @@ void convert(const input_arguments& args)
       {
         unsigned char* buffer = aux_data_buffers[b];
 
+        std::cout << buffer;     
         fwrite(buffer, sizeof(unsigned char), band_datatype_size[b], f);
 
         aux_data_buffers[b] = buffer + band_datatype_size[b];
