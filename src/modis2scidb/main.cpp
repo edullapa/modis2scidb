@@ -33,7 +33,6 @@
 #include "exception.hpp"
 #include "version.hpp"
 #include "utils.hpp"
-#include <inttypes.h>
 
 // STL
 #include <algorithm>
@@ -296,8 +295,8 @@ void convert(const input_arguments& args)
   int64_t offset_h = tile_h * ncols;
   int64_t offset_v = tile_v * nrows;
 
-/*  FILE* f = fopen(args.target_file_name.c_str(), "wb");
-  
+//  FILE* f = fopen(args.target_file_name.c_str(), "wb");
+/*  
   if(f == 0)
   {
     boost::format err_msg("could not open output file: '%1%', for write! check if path exists.");
@@ -313,9 +312,11 @@ void convert(const input_arguments& args)
       int64_t gj = offset_h + j;
       
       int64_t idx = gj + (gi * 1000000) +  (args.time_point * 100000000000);
-      std::cout << idx;     
-      
-      // fwrite(&idx, sizeof(unsigned char), sizeof(int64_t), f);
+      unsigned char* idx_cout = new unsigned char [sizeof(int64_t)]; 
+      memcpy(idx_cout, &idx, sizeof(int64_t));
+      std::cout << idx_cout;
+      delete idx_cout;
+      //fwrite(&idx, sizeof(unsigned char), sizeof(int64_t), f);
 
       //fwrite(&args.time_point, sizeof(unsigned char), sizeof(int64_t), f);
       //fwrite(&gj, sizeof(unsigned char), sizeof(int64_t), f);
@@ -324,15 +325,17 @@ void convert(const input_arguments& args)
       for(std::size_t b = 0; b != num_bands; ++b)
       {
         unsigned char* buffer = aux_data_buffers[b];
-
-        std::cout << buffer;     
-        // fwrite(buffer, sizeof(unsigned char), band_datatype_size[b], f);
+        unsigned char* buffer_cout = new unsigned char [band_datatype_size[b]];
+        memcpy(buffer_cout, buffer, band_datatype_size[b]);
+        std::cout << buffer_cout;     
+        //fwrite(buffer, sizeof(unsigned char), band_datatype_size[b], f);
 
         aux_data_buffers[b] = buffer + band_datatype_size[b];
+        delete buffer_cout;
       }
     }
   }
 
-  // fclose(f);
+  //fclose(f);
 }
 
